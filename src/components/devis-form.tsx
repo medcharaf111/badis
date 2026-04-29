@@ -5,7 +5,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 
 type FormState = "idle" | "submitting" | "sent";
 
-export function ContactForm() {
+export function DevisForm() {
   const [state, setState] = useState<FormState>("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -25,11 +25,11 @@ export function ContactForm() {
           DEMANDE ENREGISTRÉE
         </div>
         <h3 className="mt-6 font-display text-3xl font-extrabold text-navy leading-tight">
-          Merci. Nous revenons vers vous sous 48 h ouvrées.
+          Merci. Nous revenons vers vous dans les plus brefs délais.
         </h3>
         <p className="mt-4 text-steel-700 leading-relaxed">
-          Un accusé de réception a été envoyé à votre adresse. Pour les
-          demandes urgentes, contactez-nous directement par email.
+          Pour les demandes urgentes, contactez-nous directement par WhatsApp
+          ou téléphone — astreinte 24/7.
         </p>
       </div>
     );
@@ -41,29 +41,36 @@ export function ContactForm() {
       className="bg-white border border-rule divide-y divide-rule"
       noValidate
     >
-      <Field name="company" label="Société" placeholder="Raison sociale" required />
       <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-rule">
-        <Field name="name" label="Nom · prénom" placeholder="Votre nom" required />
-        <Field name="role" label="Fonction" placeholder="Acheteur, responsable maintenance…" />
+        <Field name="ship" label="Nom du navire" placeholder="Ex. MV PROVENCE" required />
+        <Field name="imo" label="IMO / MMSI" placeholder="Optionnel" />
       </div>
       <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-rule">
-        <Field name="email" label="Email pro" placeholder="vous@societe.fr" type="email" required />
-        <Field name="phone" label="Téléphone" placeholder="+33 …" type="tel" />
+        <SelectField
+          name="port"
+          label="Port d'escale"
+          required
+          options={[
+            "Marseille-Fos (FRA)",
+            "Gênes (ITA)",
+            "Autre port méditerranéen",
+            "À définir",
+          ]}
+        />
+        <Field name="eta" label="ETA · date d'arrivée" type="datetime-local" required />
       </div>
-      <Field name="siret" label="SIRET (optionnel)" placeholder="14 chiffres" />
+      <Field name="berth" label="Quai / poste prévu" placeholder="Optionnel" />
 
       <div className="px-5 py-4">
-        <label className="label-mono text-steel-500">Famille de produit</label>
+        <label className="label-mono text-steel-500">Nature de la demande</label>
         <div className="mt-3 flex flex-wrap gap-2">
           {[
-            "Outillage",
-            "Fixations",
-            "EPI",
-            "Abrasifs",
-            "Soudure",
-            "Lubrifiants",
-            "Manutention",
-            "Maintenance",
+            "Ship supply",
+            "Fournitures techniques",
+            "Pièces de rechange",
+            "Logistique & douane",
+            "Crew assistance",
+            "Urgence 24/7",
             "Autre",
           ].map((tag) => (
             <label
@@ -83,17 +90,28 @@ export function ContactForm() {
       </div>
 
       <div className="px-5 py-4">
-        <label htmlFor="message" className="label-mono text-steel-500">
-          Décrivez votre besoin
+        <label htmlFor="details" className="label-mono text-steel-500">
+          Détails de la demande
         </label>
         <textarea
-          id="message"
-          name="message"
+          id="details"
+          name="details"
           rows={6}
           required
-          placeholder="Référence, quantité, délai souhaité, contraintes particulières…"
+          placeholder="Liste des références, quantités, contraintes (température, conditionnement, urgence, certifications)…"
           className="mt-3 w-full bg-transparent border-0 p-0 outline-none text-ink placeholder:text-steel-300 resize-none focus:ring-0"
         />
+      </div>
+
+      {/* Contact */}
+      <Field name="company" label="Société / armateur" placeholder="Raison sociale" required />
+      <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-rule">
+        <Field name="name" label="Nom · prénom" placeholder="Votre nom" required />
+        <Field name="role" label="Fonction" placeholder="Operations, agent, captain…" />
+      </div>
+      <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-rule">
+        <Field name="email" label="Email" placeholder="vous@armateur.com" type="email" required />
+        <Field name="phone" label="Téléphone / WhatsApp" placeholder="+33 …" type="tel" required />
       </div>
 
       <div className="px-5 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-bg-soft">
@@ -149,6 +167,43 @@ function Field({
         placeholder={placeholder}
         className="mt-2 w-full bg-transparent border-0 p-0 outline-none text-ink placeholder:text-steel-300 focus:ring-0"
       />
+    </div>
+  );
+}
+
+function SelectField({
+  name,
+  label,
+  options,
+  required,
+}: {
+  name: string;
+  label: string;
+  options: string[];
+  required?: boolean;
+}) {
+  return (
+    <div className="px-5 py-4">
+      <label htmlFor={name} className="label-mono text-steel-500">
+        {label}
+        {required && <span className="text-yellow-deep ml-1">*</span>}
+      </label>
+      <select
+        id={name}
+        name={name}
+        required={required}
+        defaultValue=""
+        className="mt-2 w-full bg-transparent border-0 p-0 outline-none text-ink focus:ring-0"
+      >
+        <option value="" disabled>
+          Sélectionnez un port
+        </option>
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

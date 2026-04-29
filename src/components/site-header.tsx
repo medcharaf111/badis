@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight, Phone } from "lucide-react";
+import { Menu, X, ArrowUpRight, Phone, Anchor } from "lucide-react";
 import { nav, company } from "@/lib/company";
 import { cn } from "@/lib/cn";
 
@@ -26,15 +26,15 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Top utility bar */}
+      {/* Top utility bar — 24/7 + email */}
       <div className="hidden lg:block bg-navy-deep text-white/85">
         <div className="mx-auto max-w-[1400px] px-5 lg:px-10 flex items-center justify-between py-2 label-mono">
           <span className="flex items-center gap-6">
             <span className="flex items-center gap-2">
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-yellow" />
-              {company.address.street} · {company.address.postalCode} {company.address.city}
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-yellow animate-pulse" />
+              {company.contact.hours}
             </span>
-            <span>{company.contact.hours}</span>
+            <span>{company.address.formatted}</span>
           </span>
           <a
             href={`mailto:${company.contact.email}`}
@@ -57,16 +57,16 @@ export function SiteHeader() {
           <Link href="/" className="flex items-center gap-3 py-4 group">
             <span
               aria-hidden
-              className="h-11 w-11 grid place-items-center bg-navy text-white font-display font-black text-2xl group-hover:bg-yellow group-hover:text-navy-deep transition-colors"
+              className="h-11 w-11 grid place-items-center bg-navy text-yellow group-hover:bg-yellow group-hover:text-navy-deep transition-colors"
             >
-              G
+              <Anchor size={22} strokeWidth={2.2} />
             </span>
             <span className="leading-none">
               <span className="block font-display text-2xl font-extrabold tracking-tight text-navy">
                 {company.brand}
               </span>
               <span className="block label-mono text-steel-500 mt-1">
-                Fournitures industrielles · Paris
+                {company.brandFull}
               </span>
             </span>
           </Link>
@@ -93,8 +93,8 @@ export function SiteHeader() {
                 {company.contact.phone}
               </span>
             </a>
-            <Link href="/contact" className="btn-primary">
-              Devis gratuit
+            <Link href="/devis" className="btn-primary">
+              Demander un devis
               <ArrowUpRight size={14} strokeWidth={2.4} />
             </Link>
           </div>
@@ -133,11 +133,11 @@ export function SiteHeader() {
             </nav>
             <div className="mt-auto pt-10">
               <Link
-                href="/contact"
+                href="/devis"
                 onClick={() => setOpen(false)}
                 className="btn-primary w-full justify-center"
               >
-                Devis gratuit
+                Demander un devis
                 <ArrowUpRight size={14} />
               </Link>
               <a
@@ -148,7 +148,7 @@ export function SiteHeader() {
                 {company.contact.phone}
               </a>
               <p className="label-mono text-steel-500 mt-6 text-center">
-                {company.address.formatted}
+                {company.contact.hours}
               </p>
             </div>
           </div>

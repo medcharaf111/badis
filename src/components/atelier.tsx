@@ -11,10 +11,10 @@ type Tile = {
 };
 
 const tiles: Tile[] = [
-  { key: "warehouse", tag: "Logistique", title: "Stockage & expéditions", span: "wide" },
-  { key: "automotive", tag: "Secteurs", title: "Lignes d'assemblage", span: "tall" },
-  { key: "machineHands", tag: "Atelier", title: "Maintenance & usinage", span: "square" },
-  { key: "drill", tag: "Produits", title: "Outillage portatif", span: "square" },
+  { key: "shipAtQuay", tag: "Escale", title: "Navire à quai · assistance", span: "wide" },
+  { key: "containersDusk", tag: "Logistique", title: "Parc à conteneurs", span: "tall" },
+  { key: "produceCrates", tag: "Ship supply", title: "Produits frais à embarquer", span: "square" },
+  { key: "containersSunset", tag: "Méditerranée", title: "Crépuscule sur le terminal", span: "square" },
 ];
 
 export function Atelier() {
@@ -25,15 +25,16 @@ export function Atelier() {
           <div className="lg:col-span-7">
             <SectionLabel index="03" title="Notre quotidien" />
             <h2 className="display-lg mt-5 text-navy">
-              De l&apos;entrepôt au pied de{" "}
-              <span className="text-blue-600">votre machine.</span>
+              Du fournisseur{" "}
+              <span className="text-blue-600">au pied du quai.</span>
             </h2>
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="text-steel-700 leading-relaxed">
-              Aperçu des environnements que nous fournissons : ateliers,
-              chantiers, lignes de production, plateformes logistiques. Chaque
-              site impose ses contraintes — nous adaptons l&apos;approvisionnement.
+              Aperçu des environnements que nous opérons : terminaux de
+              Marseille-Fos, ports italiens, parcs logistiques de
+              Méditerranée. Chaque escale impose ses contraintes — nous
+              adaptons l&apos;approvisionnement.
             </p>
           </div>
         </div>

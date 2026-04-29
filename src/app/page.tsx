@@ -1,8 +1,9 @@
 import { Hero } from "@/components/hero";
 import { Stats } from "@/components/stats";
-import { CapabilitiesGrid } from "@/components/capabilities-grid";
+import { ServicesGrid } from "@/components/services-grid";
+import { AboutPreview } from "@/components/about-preview";
 import { Atelier } from "@/components/atelier";
-import { Sectors } from "@/components/sectors";
+import { PortsOverview } from "@/components/ports-overview";
 import { Process } from "@/components/process";
 import { WhyUs } from "@/components/why-us";
 import { ContactCTA } from "@/components/contact-cta";
@@ -12,9 +13,10 @@ export default function HomePage() {
     <main>
       <Hero />
       <Stats />
-      <CapabilitiesGrid />
+      <ServicesGrid />
+      <AboutPreview />
       <Atelier />
-      <Sectors />
+      <PortsOverview />
       <Process />
       <WhyUs />
       <ContactCTA />

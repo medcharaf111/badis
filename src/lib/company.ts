@@ -1,6 +1,9 @@
 export const company = {
   legalName: "SARRAJ AKRAM",
-  brand: "G.M.S.S",
+  brand: "GMSS",
+  brandFull: "Global Marine Supply Service",
+  tagline:
+    "Votre partenaire de confiance en approvisionnement maritime et logistique en Méditerranée",
   director: "Akram Sarraj",
   founded: "05/08/2025",
   foundedYear: "2025",
@@ -11,7 +14,7 @@ export const company = {
   rcsRegisteredAt: "Greffe de Paris — 14/08/2025",
   naf: "46.69B",
   legalForm: "Entrepreneur individuel · Micro-entreprise",
-  domain: "Commerce de gros — fournitures et équipements industriels divers",
+  domain: "Approvisionnement maritime · Services logistiques portuaires",
   domiciliation: "Les Tricolores",
   address: {
     street: "61 rue de Lyon",
@@ -21,139 +24,194 @@ export const company = {
     formatted: "61 rue de Lyon, 75012 Paris — France",
   },
   contact: {
-    email: "contact@gmss-paris.fr",
+    email: "contact@gmss-marine.fr",
     phone: "+33 (0)1 00 00 00 00",
-    hours: "Lun — Ven · 08h30 — 18h00",
+    whatsapp: "+33 (0)6 00 00 00 00",
+    hours: "24/7 · Astreinte d'urgence permanente",
   },
 } as const;
 
-export const capabilities = [
+export const services = [
   {
     no: "01",
-    title: "Outillage",
-    sub: "À main & électroportatif",
+    title: "Approvisionnement navire",
+    sub: "Ship supply",
     body:
-      "Marteaux, clés dynamométriques, perceuses, meuleuses, coffrets — sélection ciblée pour ateliers et chantiers.",
+      "Produits alimentaires (frais, secs, surgelés), fournitures de cabine, produits détaxés (bonded stores) — pour relever vos provisions à l'escale.",
+    items: [
+      "Produits alimentaires (frais, secs, surgelés)",
+      "Fournitures de cabine",
+      "Produits détaxés (bonded stores)",
+      "Eau potable & boissons",
+    ],
   },
   {
     no: "02",
-    title: "Fixations",
-    sub: "Quincaillerie technique",
+    title: "Fournitures techniques",
+    sub: "Pièces & équipements",
     body:
-      "Visserie, boulonnerie, ancrages, rivets, colliers — gammes inox, acier zingué, haute résistance.",
+      "Pièces moteurs, équipements de pont, outillage technique — pour vos opérations de maintenance et de réparation.",
+    items: [
+      "Pièces moteurs",
+      "Équipements de pont",
+      "Outillage technique",
+      "Consommables industriels",
+    ],
   },
   {
     no: "03",
-    title: "Protection",
-    sub: "EPI & sécurité",
+    title: "Pièces de rechange",
+    sub: "Spare parts",
     body:
-      "Casques, chaussures, gants, lunettes, harnais — équipements certifiés CE pour vos opérateurs.",
+      "Livraison rapide de pièces de rechange critiques aux navires en escale — sourcing direct auprès des fabricants.",
+    items: [
+      "Sourcing direct fabricants",
+      "Pièces critiques en urgence",
+      "Suivi de commande dédié",
+      "Documentation technique",
+    ],
   },
   {
     no: "04",
-    title: "Abrasifs",
-    sub: "Disques & consommables",
+    title: "Logistique & transport",
+    sub: "Forwarding & douane",
     body:
-      "Disques de coupe, ponçage, polissage, brosses métalliques, toiles abrasives — toutes granulométries.",
+      "Organisation des livraisons, transport rapide, gestion douanière — du fournisseur au pied du quai.",
+    items: [
+      "Organisation des livraisons",
+      "Transport rapide",
+      "Gestion douanière",
+      "Coordination avec l'agent maritime",
+    ],
   },
   {
     no: "05",
-    title: "Soudure",
-    sub: "Métallurgie",
+    title: "Services équipage",
+    sub: "Crew assistance",
     body:
-      "Postes MIG/TIG, électrodes, fils fourrés, gaz techniques, accessoires — pour soudeurs et chaudronniers.",
+      "Organisation des relèves, transferts aéroport / port, réservations hôtels — pour vos rotations d'équipage.",
+    items: [
+      "Organisation des relèves",
+      "Transferts aéroport / port",
+      "Réservations hôtels",
+      "Assistance administrative",
+    ],
   },
   {
     no: "06",
-    title: "Lubrifiants",
-    sub: "Fluides industriels",
+    title: "Intervention d'urgence",
+    sub: "24/7 emergency",
     body:
-      "Huiles hydrauliques, graisses, dégrippants, fluides de coupe — conditionnements pro et bidons.",
-  },
-  {
-    no: "07",
-    title: "Manutention",
-    sub: "Stockage & levage",
-    body:
-      "Diables, transpalettes, sangles, palans, rayonnages, bacs — équipez vos zones logistiques.",
-  },
-  {
-    no: "08",
-    title: "Maintenance",
-    sub: "Hygiène & entretien",
-    body:
-      "Produits de nettoyage industriel, dégraissants, papiers d'essuyage, sacs, signalétique d'atelier.",
+      "Service permanent pour répondre aux demandes urgentes et garantir la continuité des opérations de nos clients.",
+    items: [
+      "Astreinte 24/7",
+      "Réponse immédiate",
+      "Livraison express",
+      "Coordination multi-fournisseurs",
+    ],
   },
 ] as const;
 
-export const sectors = [
-  "Bâtiment & second œuvre",
-  "Industrie manufacturière",
-  "Automobile & transport",
-  "Logistique & manutention",
-  "Énergie & maintenance",
-  "Métallurgie & chaudronnerie",
-  "Aéronautique & sous-traitance",
-  "Artisans & ateliers",
-] as const;
-
-export const process = [
+export const ports = [
   {
-    no: "01",
-    title: "Brief",
+    code: "FRA · MRS / FOS",
+    name: "Marseille-Fos",
+    country: "France",
     body:
-      "Vous nous transmettez vos besoins — référence, quantité, délai. Pas de catalogue à éplucher.",
+      "Approvisionnement complet, livraison rapide à quai, couverture combinée Fos et Marseille.",
+    capabilities: [
+      "Approvisionnement complet",
+      "Livraison rapide à quai",
+      "Couverture Fos & Marseille",
+      "Coordination agent maritime",
+    ],
   },
   {
-    no: "02",
-    title: "Sourcing",
+    code: "ITA · GOA",
+    name: "Gênes",
+    country: "Italie",
     body:
-      "Nous activons notre réseau de fournisseurs et identifions le meilleur ratio qualité-prix-délai.",
+      "Services techniques et logistiques, intervention rapide, réseau local fiable.",
+    capabilities: [
+      "Services techniques & logistiques",
+      "Intervention rapide",
+      "Réseau local fiable",
+      "Coordination transfrontalière",
+    ],
   },
   {
-    no: "03",
-    title: "Devis",
+    code: "MED · SUR DEMANDE",
+    name: "Autres ports méditerranéens",
+    country: "Méditerranée",
     body:
-      "Tarification transparente sous 48 h ouvrées. Conditions claires, pas de coûts cachés.",
-  },
-  {
-    no: "04",
-    title: "Livraison",
-    body:
-      "Logistique Paris & Île-de-France. Suivi de commande dédié, factures conformes B2B.",
+      "Intervention sur demande, en fonction des besoins de chaque escale.",
+    capabilities: [
+      "Activation sur demande",
+      "Couverture extensible",
+      "Réseau partenaire",
+      "Étude de faisabilité rapide",
+    ],
   },
 ] as const;
 
 export const principles = [
   {
     label: "01",
-    title: "Sourcing rigoureux",
+    title: "Réactivité 24/7",
     body:
-      "Chaque fournisseur est qualifié sur trois critères : conformité, fiabilité, délai.",
+      "Astreinte permanente. Réponse immédiate, jour, nuit, week-end et jours fériés — la marine ne dort pas.",
   },
   {
     label: "02",
-    title: "Tarification claire",
+    title: "Société basée en Europe",
     body:
-      "Pas d'opacité sur la marge. Devis détaillé ligne par ligne, conditions B2B standardisées.",
+      "Siège en France, opérations dans les principaux ports méditerranéens. Conformité européenne.",
   },
   {
     label: "03",
-    title: "Réactivité parisienne",
+    title: "Réseau de fournisseurs qualifiés",
     body:
-      "Implantés Paris 12e. Réponse sous 24 h, livraison rapide en Île-de-France.",
+      "Sourcing en direct auprès de fournisseurs validés sur la conformité, la qualité et le délai.",
   },
   {
     label: "04",
-    title: "Conformité",
+    title: "Expertise du secteur maritime",
     body:
-      "Marquages CE, fiches techniques disponibles, traçabilité fournisseur sur demande.",
+      "Connaissance opérationnelle des escales, des contraintes navires et des procédures portuaires.",
+  },
+] as const;
+
+export const process = [
+  {
+    no: "01",
+    title: "Demande",
+    body:
+      "Vous nous transmettez votre demande : ETA, port d'escale, liste des besoins. Email ou WhatsApp.",
+  },
+  {
+    no: "02",
+    title: "Devis",
+    body:
+      "Tarification claire et rapide. Confirmation des disponibilités et planning de livraison.",
+  },
+  {
+    no: "03",
+    title: "Sourcing",
+    body:
+      "Activation du réseau fournisseurs. Préparation, contrôle qualité, conditionnement adapté.",
+  },
+  {
+    no: "04",
+    title: "Livraison à quai",
+    body:
+      "Coordination avec l'agent maritime. Bon de livraison signé par le commandant ou le chief steward.",
   },
 ] as const;
 
 export const nav = [
   { href: "/", label: "Accueil" },
-  { href: "/capacites", label: "Capacités" },
+  { href: "/services", label: "Services" },
+  { href: "/ports", label: "Ports" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ] as const;

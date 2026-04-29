@@ -1,14 +1,14 @@
 import { process } from "@/lib/company";
 import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
-import { ClipboardList, Search, FileCheck2, Truck } from "lucide-react";
+import { ClipboardList, FileCheck2, Search, Anchor } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const icons: Record<string, LucideIcon> = {
   "01": ClipboardList,
-  "02": Search,
-  "03": FileCheck2,
-  "04": Truck,
+  "02": FileCheck2,
+  "03": Search,
+  "04": Anchor,
 };
 
 export function Process() {
@@ -17,15 +17,17 @@ export function Process() {
       <div className="mx-auto max-w-[1400px] px-5 lg:px-10 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
-            <SectionLabel index="05" title="Méthode · Approvisionnement" />
+            <SectionLabel index="05" title="Méthode · De la demande au quai" />
             <h2 className="display-lg mt-5 text-navy">
-              Quatre étapes. <span className="text-blue-600">Aucun bavardage.</span>
+              Quatre étapes.{" "}
+              <span className="text-blue-600">Aucun temps perdu.</span>
             </h2>
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="text-steel-700 leading-relaxed">
-              Process court par design. Vous parlez à une personne qui décide —
-              pas à un standard. Allers-retours réduits, livraison plus rapide.
+              Process court par design. Vous parlez à une personne qui décide
+              — pas à un standard. Délai d&apos;escale réduit, livraison
+              maîtrisée.
             </p>
           </div>
         </div>
@@ -36,7 +38,6 @@ export function Process() {
             return (
               <Reveal key={step.no} delay={i * 100} as="li">
                 <article className="relative bg-white border border-rule p-7 h-full hover:border-blue-100 hover:shadow-[var(--shadow-card)] transition-all">
-                  {/* Step badge */}
                   <div className="flex items-center justify-between">
                     <div className="h-14 w-14 grid place-items-center bg-yellow text-navy-deep rounded-sm shadow-[0_8px_18px_-8px_rgba(245,180,23,0.7)]">
                       <Icon size={26} strokeWidth={2} />

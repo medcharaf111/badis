@@ -26,25 +26,28 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "G.M.S.S — Fournitures & équipements industriels · Paris",
+  title: "GMSS — Global Marine Supply Service · Approvisionnement maritime",
   description:
-    "G.M.S.S. (SARRAJ AKRAM) — Distribution B2B de fournitures et équipements industriels à Paris et en Île-de-France. Outillage, EPI, fixations, abrasifs, soudure, lubrifiants.",
+    "GMSS (Global Marine Supply Service) — Ship supply et services logistiques portuaires en Méditerranée. Marseille-Fos, Gênes et autres ports sur demande. Devis 24/7.",
   keywords: [
-    "fournitures industrielles",
-    "équipements industriels",
-    "grossiste",
-    "Paris",
-    "Île-de-France",
-    "EPI",
-    "outillage",
-    "G.M.S.S",
-    "SARRAJ AKRAM",
+    "ship supply",
+    "approvisionnement maritime",
+    "fournitures navire",
+    "logistique portuaire",
+    "Marseille",
+    "Fos",
+    "Gênes",
+    "Méditerranée",
+    "GMSS",
+    "Global Marine Supply Service",
+    "spare parts",
+    "crew assistance",
   ],
-  authors: [{ name: "G.M.S.S — SARRAJ AKRAM" }],
+  authors: [{ name: "GMSS · Global Marine Supply Service" }],
   openGraph: {
-    title: "G.M.S.S — Fournitures & équipements industriels",
+    title: "GMSS — Global Marine Supply Service",
     description:
-      "Distribution B2B pour ateliers, chantiers et industries d'Île-de-France.",
+      "Approvisionnement et services logistiques pour les navires en escale en Méditerranée. 24/7.",
     locale: "fr_FR",
     type: "website",
   },

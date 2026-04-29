@@ -1,34 +1,40 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock, Phone } from "lucide-react";
+import Link from "next/link";
+import {
+  Mail,
+  MapPin,
+  Clock,
+  Phone,
+  MessageCircle,
+  ArrowUpRight,
+} from "lucide-react";
 import { company } from "@/lib/company";
 import { Marquee } from "@/components/marquee";
 import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
-import { ContactForm } from "@/components/contact-form";
 
 export const metadata: Metadata = {
   title: `Contact · ${company.brand}`,
-  description: `Contactez ${company.brand} (${company.legalName}) — devis sous 48 h pour vos fournitures et équipements industriels en Île-de-France.`,
+  description: `Contactez GMSS — équipe disponible 24/7 pour vos demandes d'approvisionnement maritime, fournitures techniques et logistique portuaire en Méditerranée.`,
 };
 
 export default function ContactPage() {
   return (
     <main>
-      {/* Header */}
       <section className="relative overflow-hidden hero-navy text-white">
         <div
           aria-hidden
           className="absolute inset-0 blueprint-grid-dark opacity-50 pointer-events-none"
         />
         <div className="relative mx-auto max-w-[1400px] px-5 lg:px-10 pt-16 lg:pt-24 pb-20 lg:pb-28">
-          <SectionLabel index="Contact" title="Demande de devis" variant="dark" />
+          <SectionLabel index="Contact" title="Nous joindre" variant="dark" />
           <h1 className="display-xl mt-6">
-            Parlons de votre <span className="text-yellow">besoin.</span>
+            Contactez<span className="text-yellow">-nous.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg lg:text-xl text-white/80 leading-relaxed">
-            Demande de devis, sourcing sur-mesure, ouverture de compte
-            professionnel — décrivez-nous votre besoin et nous revenons vers
-            vous sous 48 h ouvrées.
+            Notre équipe est disponible pour répondre à toutes vos demandes
+            dans les plus brefs délais. Astreinte permanente — la marine ne
+            dort pas.
           </p>
         </div>
       </section>
@@ -36,81 +42,147 @@ export default function ContactPage() {
       <Marquee
         variant="yellow"
         items={[
-          "DEVIS · 48H",
-          "PARIS 12ᵉ",
-          "LIVRAISON IDF",
+          "RÉPONSE RAPIDE",
+          "ASTREINTE 24/7",
+          "MARSEILLE-FOS · GÊNES",
           `EMAIL ${company.contact.email.toUpperCase()}`,
-          `SIREN ${company.siren}`,
         ]}
       />
 
-      {/* Form + sidebar */}
       <section className="bg-white">
         <div className="mx-auto max-w-[1400px] px-5 lg:px-10 py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Contact channels */}
             <div className="lg:col-span-7">
-              <SectionLabel index="01" title="Formulaire" />
-              <h2 className="display-md mt-5 mb-9 text-navy">
-                Demande de <span className="text-blue-600">devis.</span>
+              <SectionLabel index="01" title="Canaux de contact" />
+              <h2 className="display-md mt-5 text-navy">
+                Le plus rapide :{" "}
+                <span className="text-blue-600">téléphone ou WhatsApp.</span>
               </h2>
-              <Reveal>
-                <ContactForm />
-              </Reveal>
-            </div>
+              <p className="mt-7 text-steel-700 leading-relaxed text-lg max-w-xl">
+                Pour les escales urgentes, privilégiez WhatsApp ou
+                l&apos;astreinte téléphonique. Pour les demandes structurées,
+                utilisez le formulaire de devis ou l&apos;email — nous
+                revenons rapidement avec un devis détaillé.
+              </p>
 
-            <aside className="lg:col-span-4 lg:col-start-9 space-y-10 lg:sticky lg:top-28 lg:self-start">
-              <div>
-                <SectionLabel index="02" title="Coordonnées" />
-                <ul className="mt-6 bg-white border border-rule divide-y divide-rule">
-                  <ContactRow
-                    icon={<MapPin size={18} className="text-yellow-deep" />}
-                    label="Siège"
-                    value={
-                      <>
-                        {company.address.street}
-                        <br />
-                        {company.address.postalCode} {company.address.city}
-                        <br />
-                        <span className="text-steel-500 label-mono">
-                          {company.domiciliation}
-                        </span>
-                      </>
-                    }
-                  />
-                  <ContactRow
-                    icon={<Mail size={18} className="text-yellow-deep" />}
-                    label="Email"
-                    value={
-                      <a
-                        href={`mailto:${company.contact.email}`}
-                        className="link-underline"
-                      >
-                        {company.contact.email}
-                      </a>
-                    }
-                  />
-                  <ContactRow
-                    icon={<Phone size={18} className="text-yellow-deep" />}
-                    label="Téléphone"
-                    value={
-                      <a
-                        href={`tel:${company.contact.phone.replace(/[^0-9+]/g, "")}`}
-                        className="link-underline tnum"
-                      >
-                        {company.contact.phone}
-                      </a>
-                    }
-                  />
-                  <ContactRow
-                    icon={<Clock size={18} className="text-yellow-deep" />}
-                    label="Horaires"
-                    value={company.contact.hours}
-                  />
-                </ul>
+              <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ChannelCard
+                  icon={<Phone size={22} strokeWidth={2} />}
+                  tag="Téléphone"
+                  label={company.contact.phone}
+                  href={`tel:${company.contact.phone.replace(/[^0-9+]/g, "")}`}
+                  hint="Astreinte 24/7"
+                />
+                <ChannelCard
+                  icon={<MessageCircle size={22} strokeWidth={2} />}
+                  tag="WhatsApp"
+                  label={company.contact.whatsapp}
+                  href={`https://wa.me/${company.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+                  hint="Réponse rapide"
+                />
+                <ChannelCard
+                  icon={<Mail size={22} strokeWidth={2} />}
+                  tag="Email"
+                  label={company.contact.email}
+                  href={`mailto:${company.contact.email}`}
+                  hint="Demandes structurées"
+                />
+                <ChannelCard
+                  icon={<MapPin size={22} strokeWidth={2} />}
+                  tag="Adresse"
+                  label={`${company.address.postalCode} ${company.address.city}`}
+                  href="#"
+                  hint={company.address.street}
+                  noLink
+                />
               </div>
 
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link href="/devis" className="btn-primary">
+                  Demander un devis
+                  <ArrowUpRight size={14} strokeWidth={2.4} />
+                </Link>
+                <Link href="/services" className="btn-ghost">
+                  Voir nos services
+                  <ArrowUpRight size={14} strokeWidth={2.4} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Sidebar — full info card */}
+            <aside className="lg:col-span-4 lg:col-start-9 space-y-10 lg:sticky lg:top-28 lg:self-start">
+              <Reveal>
+                <div className="bg-white border border-rule">
+                  <div className="bg-navy text-white px-5 py-4 flex items-center justify-between">
+                    <span className="font-display font-bold uppercase tracking-wide text-sm">
+                      Informations
+                    </span>
+                    <span className="label-mono text-yellow">24/7</span>
+                  </div>
+                  <ul className="divide-y divide-rule">
+                    <InfoRow
+                      icon={<MapPin size={18} className="text-yellow-deep" />}
+                      label="Siège (France)"
+                      value={
+                        <>
+                          {company.address.street}
+                          <br />
+                          {company.address.postalCode} {company.address.city}
+                          <br />
+                          <span className="text-steel-500 label-mono">
+                            {company.domiciliation}
+                          </span>
+                        </>
+                      }
+                    />
+                    <InfoRow
+                      icon={<Mail size={18} className="text-yellow-deep" />}
+                      label="Email"
+                      value={
+                        <a
+                          href={`mailto:${company.contact.email}`}
+                          className="link-underline"
+                        >
+                          {company.contact.email}
+                        </a>
+                      }
+                    />
+                    <InfoRow
+                      icon={<Phone size={18} className="text-yellow-deep" />}
+                      label="Téléphone"
+                      value={
+                        <a
+                          href={`tel:${company.contact.phone.replace(/[^0-9+]/g, "")}`}
+                          className="link-underline tnum"
+                        >
+                          {company.contact.phone}
+                        </a>
+                      }
+                    />
+                    <InfoRow
+                      icon={<MessageCircle size={18} className="text-yellow-deep" />}
+                      label="WhatsApp"
+                      value={
+                        <a
+                          href={`https://wa.me/${company.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+                          className="link-underline tnum"
+                        >
+                          {company.contact.whatsapp}
+                        </a>
+                      }
+                    />
+                    <InfoRow
+                      icon={<Clock size={18} className="text-yellow-deep" />}
+                      label="Disponibilité"
+                      value={company.contact.hours}
+                    />
+                  </ul>
+                </div>
+              </Reveal>
+
               <div>
-                <SectionLabel index="03" title="Identité légale" />
+                <SectionLabel index="02" title="Identité légale" />
                 <dl className="mt-6 bg-bg-soft border border-rule divide-y divide-rule label-mono">
                   <LegalRow label="SIREN" value={company.siren} />
                   <LegalRow label="SIRET" value={company.siret} />
@@ -127,10 +199,10 @@ export default function ContactPage() {
       {/* Map */}
       <section className="bg-bg-soft">
         <div className="mx-auto max-w-[1400px] px-5 lg:px-10 py-16 lg:py-24">
-          <SectionLabel index="04" title="Localisation" />
+          <SectionLabel index="03" title="Localisation" />
           <h2 className="display-md mt-5 max-w-2xl text-navy">
-            Paris 12<sup>e</sup> · proximité{" "}
-            <span className="text-blue-600">Gare de Lyon.</span>
+            Siège · Paris 12<sup>e</sup> ·{" "}
+            <span className="text-blue-600">opérations en Méditerranée.</span>
           </h2>
           <div className="mt-10 relative h-[420px] border border-rule overflow-hidden bg-white">
             <div
@@ -153,49 +225,65 @@ export default function ContactPage() {
                 <path d="M460 -50 L420 470" />
                 <path d="M620 -50 L660 470" />
               </g>
-              <g stroke="#2270c4" strokeWidth="2.2" fill="none">
-                <path d="M280 200 L660 180" />
+              {/* Mediterranean route line: Paris → Marseille → Genoa */}
+              <g stroke="#2270c4" strokeWidth="2.2" fill="none" strokeDasharray="6 6">
+                <path d="M180 130 Q 320 280, 420 320" />
+                <path d="M420 320 L 580 310" />
               </g>
-              <g transform="translate(420,200)">
-                <circle r="42" fill="rgba(245,180,23,0.18)" />
-                <circle r="22" fill="rgba(245,180,23,0.32)" />
+              {/* Paris (HQ) */}
+              <g transform="translate(180,130)">
+                <circle r="22" fill="rgba(245,180,23,0.18)" />
                 <circle r="9" fill="#f5b417" stroke="#0e2a47" strokeWidth="1.8" />
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="-58"
-                  stroke="#0e2a47"
-                  strokeDasharray="3 3"
-                />
                 <text
-                  x="10"
-                  y="-58"
-                  fill="#0e2a47"
-                  fontFamily="IBM Plex Mono, monospace"
-                  fontSize="11"
-                  letterSpacing="0.18em"
-                  fontWeight="600"
-                >
-                  G.M.S.S
-                </text>
-                <text
-                  x="10"
-                  y="-44"
+                  x="14"
+                  y="-6"
                   fill="#0e2a47"
                   fontFamily="IBM Plex Mono, monospace"
                   fontSize="10"
-                  letterSpacing="0.1em"
+                  letterSpacing="0.18em"
+                  fontWeight="600"
                 >
-                  61 RUE DE LYON
+                  PARIS · SIÈGE
+                </text>
+              </g>
+              {/* Marseille */}
+              <g transform="translate(420,320)">
+                <circle r="14" fill="rgba(34,112,196,0.22)" />
+                <circle r="6" fill="#2270c4" stroke="#0e2a47" strokeWidth="1.5" />
+                <text
+                  x="10"
+                  y="6"
+                  fill="#0e2a47"
+                  fontFamily="IBM Plex Mono, monospace"
+                  fontSize="10"
+                  letterSpacing="0.16em"
+                  fontWeight="600"
+                >
+                  MARSEILLE-FOS
+                </text>
+              </g>
+              {/* Genoa */}
+              <g transform="translate(580,310)">
+                <circle r="14" fill="rgba(34,112,196,0.22)" />
+                <circle r="6" fill="#2270c4" stroke="#0e2a47" strokeWidth="1.5" />
+                <text
+                  x="10"
+                  y="6"
+                  fill="#0e2a47"
+                  fontFamily="IBM Plex Mono, monospace"
+                  fontSize="10"
+                  letterSpacing="0.16em"
+                  fontWeight="600"
+                >
+                  GÊNES
                 </text>
               </g>
             </svg>
             <div className="absolute top-4 left-4 label-mono text-steel-700 bg-white/85 px-3 py-1.5">
-              Plan d&apos;accès · indicatif
+              Carte indicative · zones d&apos;intervention
             </div>
-            <div className="absolute bottom-4 right-4 label-mono text-steel-700 bg-white/85 px-3 py-1.5 tnum">
-              48.8466° N · 2.3729° E
+            <div className="absolute bottom-4 right-4 label-mono text-steel-700 bg-white/85 px-3 py-1.5">
+              FRANCE · ITALIE · MÉDITERRANÉE
             </div>
           </div>
         </div>
@@ -204,7 +292,51 @@ export default function ContactPage() {
   );
 }
 
-function ContactRow({
+function ChannelCard({
+  icon,
+  tag,
+  label,
+  href,
+  hint,
+  noLink,
+}: {
+  icon: React.ReactNode;
+  tag: string;
+  label: string;
+  href: string;
+  hint: string;
+  noLink?: boolean;
+}) {
+  const content = (
+    <>
+      <div className="flex items-center justify-between">
+        <div className="h-12 w-12 grid place-items-center bg-yellow text-navy-deep">
+          {icon}
+        </div>
+        <span className="label-mono text-yellow-deep">{tag}</span>
+      </div>
+      <div className="mt-5 font-display text-lg lg:text-xl font-extrabold text-navy break-all">
+        {label}
+      </div>
+      <div className="mt-1 label-mono text-steel-500">{hint}</div>
+    </>
+  );
+  if (noLink) {
+    return (
+      <div className="bg-bg-soft border border-rule p-6">{content}</div>
+    );
+  }
+  return (
+    <a
+      href={href}
+      className="block bg-bg-soft border border-rule p-6 hover:bg-white hover:border-blue-100 hover:shadow-[var(--shadow-card)] transition-all"
+    >
+      {content}
+    </a>
+  );
+}
+
+function InfoRow({
   icon,
   label,
   value,

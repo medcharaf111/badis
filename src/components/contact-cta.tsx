@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Clock, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Clock, Phone, MessageCircle } from "lucide-react";
 import { company } from "@/lib/company";
 import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
@@ -8,25 +8,30 @@ export function ContactCTA() {
   return (
     <section className="bg-bg-soft relative overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-5 lg:px-10 py-20 lg:py-28 relative">
-        <SectionLabel index="07" title="Contact · Devis" />
+        <SectionLabel index="07" title="Urgence · Devis" />
 
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <Reveal className="lg:col-span-7">
             <h2 className="display-xl text-navy">
-              Un besoin précis<span className="text-yellow">?</span>
+              Besoin d&apos;une livraison{" "}
+              <span className="text-yellow">urgente?</span>
             </h2>
             <p className="mt-7 text-xl leading-relaxed text-steel-700 max-w-xl">
-              Décrivez-nous votre demande — référence, quantité, délai. Nous
-              revenons vers vous sous 48 h ouvrées avec un devis détaillé.
+              Notre équipe est joignable 24/7 pour les demandes d&apos;urgence.
+              Indiquez ETA, port d&apos;escale et nature des besoins — nous
+              activons immédiatement le réseau.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-primary">
-                Lancer un devis
+              <Link href="/devis" className="btn-primary">
+                Demander un devis
                 <ArrowUpRight size={14} strokeWidth={2.4} />
               </Link>
-              <a href={`mailto:${company.contact.email}`} className="btn-ghost">
-                <Mail size={14} />
-                {company.contact.email}
+              <a
+                href={`https://wa.me/${company.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+                className="btn-ghost"
+              >
+                <MessageCircle size={14} />
+                WhatsApp
               </a>
             </div>
           </Reveal>
@@ -37,12 +42,12 @@ export function ContactCTA() {
                 <span className="font-display font-bold uppercase tracking-wide text-sm">
                   Coordonnées
                 </span>
-                <span className="label-mono text-yellow">G.M.S.S</span>
+                <span className="label-mono text-yellow">24/7</span>
               </div>
               <ul className="divide-y divide-rule">
                 <Row
                   icon={<MapPin size={18} className="text-yellow-deep" />}
-                  label="Adresse"
+                  label="Siège"
                   value={
                     <>
                       {company.address.street}
@@ -60,6 +65,18 @@ export function ContactCTA() {
                       className="link-underline tnum"
                     >
                       {company.contact.phone}
+                    </a>
+                  }
+                />
+                <Row
+                  icon={<MessageCircle size={18} className="text-yellow-deep" />}
+                  label="WhatsApp"
+                  value={
+                    <a
+                      className="link-underline tnum"
+                      href={`https://wa.me/${company.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+                    >
+                      {company.contact.whatsapp}
                     </a>
                   }
                 />

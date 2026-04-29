@@ -2,10 +2,10 @@ import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
 
 const stats = [
-  { value: "08", suffix: "+", label: "Familles de produits couvertes" },
-  { value: "48h", suffix: "", label: "Délai standard de réponse devis" },
-  { value: "100%", suffix: "", label: "Île-de-France livrée" },
-  { value: "B2B", suffix: "", label: "Comptes pros, factures conformes" },
+  { value: "24/7", suffix: "", label: "Astreinte permanente · Méditerranée" },
+  { value: "06", suffix: "+", label: "Familles de services maritimes" },
+  { value: "MED", suffix: "", label: "Couverture Marseille · Gênes · autres" },
+  { value: "B2B", suffix: "", label: "Armateurs · agents · exploitants" },
 ];
 
 export function Stats() {
