@@ -68,16 +68,21 @@ export function Hero() {
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] overflow-hidden border border-white/10">
               <Image
-                src={img("portCranesSky", 1200, 80)}
-                alt={images.portCranesSky.alt}
+                src={img("shipBlueCranes", 1200, 80)}
+                alt={images.shipBlueCranes.alt}
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
               />
+              {/* Navy color-harmonisation overlays */}
               <div
                 aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy/15 to-transparent"
+                className="absolute inset-0 bg-navy/25 mix-blend-multiply"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-navy-deep/20 to-navy-deep/15"
               />
               <div className="absolute top-4 left-4 flex items-center gap-2 bg-yellow text-navy-deep px-3 py-1.5 font-display font-bold text-xs uppercase tracking-wider">
                 <Anchor size={12} strokeWidth={2.4} />
