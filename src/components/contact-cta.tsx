@@ -84,12 +84,20 @@ export function ContactCTA() {
                   icon={<Mail size={18} className="text-yellow-deep" />}
                   label="Email"
                   value={
-                    <a
-                      className="link-underline"
-                      href={`mailto:${company.contact.email}`}
-                    >
-                      {company.contact.email}
-                    </a>
+                    <span className="leading-relaxed">
+                      <a
+                        className="link-underline block"
+                        href={`mailto:${company.contact.email}`}
+                      >
+                        {company.contact.email}
+                      </a>
+                      <a
+                        className="link-underline block text-steel-700 mt-0.5"
+                        href={`mailto:${company.contact.emailSales}`}
+                      >
+                        {company.contact.emailSales}
+                      </a>
+                    </span>
                   }
                 />
                 <Row

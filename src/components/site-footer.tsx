@@ -116,9 +116,17 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-yellow mt-1 shrink-0" />
-                <a href={`mailto:${company.contact.email}`} className="link-underline">
-                  {company.contact.email}
-                </a>
+                <span className="leading-relaxed">
+                  <a href={`mailto:${company.contact.email}`} className="link-underline block">
+                    {company.contact.email}
+                  </a>
+                  <a
+                    href={`mailto:${company.contact.emailSales}`}
+                    className="link-underline block mt-0.5"
+                  >
+                    {company.contact.emailSales}
+                  </a>
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <Clock size={16} className="text-yellow mt-1 shrink-0" />

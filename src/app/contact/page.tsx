@@ -83,10 +83,17 @@ export default function ContactPage() {
                 />
                 <ChannelCard
                   icon={<Mail size={22} strokeWidth={2} />}
-                  tag="Email"
+                  tag="Email · général"
                   label={company.contact.email}
                   href={`mailto:${company.contact.email}`}
                   hint="Demandes structurées"
+                />
+                <ChannelCard
+                  icon={<Mail size={22} strokeWidth={2} />}
+                  tag="Email · commerce"
+                  label={company.contact.emailSales}
+                  href={`mailto:${company.contact.emailSales}`}
+                  hint="Devis & comptes pros"
                 />
                 <ChannelCard
                   icon={<MapPin size={22} strokeWidth={2} />}
@@ -140,12 +147,20 @@ export default function ContactPage() {
                       icon={<Mail size={18} className="text-yellow-deep" />}
                       label="Email"
                       value={
-                        <a
-                          href={`mailto:${company.contact.email}`}
-                          className="link-underline"
-                        >
-                          {company.contact.email}
-                        </a>
+                        <span className="leading-relaxed">
+                          <a
+                            href={`mailto:${company.contact.email}`}
+                            className="link-underline block"
+                          >
+                            {company.contact.email}
+                          </a>
+                          <a
+                            href={`mailto:${company.contact.emailSales}`}
+                            className="link-underline block mt-0.5"
+                          >
+                            {company.contact.emailSales}
+                          </a>
+                        </span>
                       }
                     />
                     <InfoRow

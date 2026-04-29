@@ -24,9 +24,10 @@ export const company = {
     formatted: "61 rue de Lyon, 75012 Paris — France",
   },
   contact: {
-    email: "contact@gmss-marine.fr",
-    phone: "+33 (0)1 00 00 00 00",
-    whatsapp: "+33 (0)6 00 00 00 00",
+    email: "contact@gmss-ei.fr",
+    emailSales: "sales@gmss-ei.fr",
+    phone: "+33 7 53 10 78 94",
+    whatsapp: "+33 7 53 10 78 94",
     hours: "24/7 · Astreinte d'urgence permanente",
   },
 } as const;

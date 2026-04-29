@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://gmss-marine.fr/sitemap.xml",
+    sitemap: "https://gmss-ei.fr/sitemap.xml",
   };
 }
