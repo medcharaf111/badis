@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+// G.M.S.S — Next.js configuration. Vercel auto-detects this file.
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   turbopack: {
