@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight, Phone, Anchor } from "lucide-react";
+import { Menu, X, ArrowUpRight, Phone } from "lucide-react";
 import { nav, company } from "@/lib/company";
 import { cn } from "@/lib/cn";
 
@@ -54,13 +54,15 @@ export function SiteHeader() {
         )}
       >
         <div className="mx-auto flex max-w-[1400px] items-stretch px-5 lg:px-10">
-          <Link href="/" className="flex items-center gap-3 py-4 group">
-            <span
-              aria-hidden
-              className="h-11 w-11 grid place-items-center bg-navy text-yellow group-hover:bg-yellow group-hover:text-navy-deep transition-colors"
-            >
-              <Anchor size={22} strokeWidth={2.2} />
-            </span>
+          <Link href="/" className="flex items-center gap-3 py-3 group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt={`${company.brand} — ${company.brandFull}`}
+              className="h-12 w-12 object-contain group-hover:opacity-90 transition-opacity"
+              width={48}
+              height={48}
+            />
             <span className="leading-none">
               <span className="block font-display text-2xl font-extrabold tracking-tight text-navy">
                 {company.brand}

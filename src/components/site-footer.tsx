@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, MapPin, Mail, Clock, Phone, Anchor, MessageCircle } from "lucide-react";
+import { ArrowUpRight, MapPin, Mail, Clock, Phone, MessageCircle } from "lucide-react";
 import { company, nav } from "@/lib/company";
 
 export function SiteFooter() {
@@ -37,10 +37,15 @@ export function SiteFooter() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mt-14">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
-              <span className="h-12 w-12 grid place-items-center bg-yellow text-navy-deep">
-                <Anchor size={26} strokeWidth={2.2} />
-              </span>
+            <div className="flex items-center gap-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo.png"
+                alt={`${company.brand} — ${company.brandFull}`}
+                className="h-16 w-16 object-contain"
+                width={64}
+                height={64}
+              />
               <span>
                 <span className="block font-display text-3xl font-extrabold leading-none">
                   {company.brand}
@@ -136,47 +141,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Massive wordmark */}
-        <div className="mt-16 border-t border-white/10 pt-10">
-          <h2
-            className="font-display font-black uppercase leading-[0.85] tracking-[-0.025em] select-none"
-            style={{ fontSize: "clamp(4rem, 14vw, 14rem)", color: "rgba(255,255,255,0.06)" }}
-            aria-hidden
-          >
-            GMSS
-          </h2>
-        </div>
-
-        {/* Legal */}
-        <div className="mt-2 grid grid-cols-2 md:grid-cols-5 gap-6 border-t border-white/10 pt-8 label-mono text-white/60">
-          <div>
-            <div className="text-white/40">SIREN</div>
-            <div className="mt-1 text-white tnum">{company.siren}</div>
-          </div>
-          <div>
-            <div className="text-white/40">SIRET</div>
-            <div className="mt-1 text-white tnum">{company.siret}</div>
-          </div>
-          <div>
-            <div className="text-white/40">TVA INTRA.</div>
-            <div className="mt-1 text-white tnum">{company.vat}</div>
-          </div>
-          <div>
-            <div className="text-white/40">CODE APE</div>
-            <div className="mt-1 text-white tnum">{company.naf}</div>
-          </div>
-          <div>
-            <div className="text-white/40">RCS</div>
-            <div className="mt-1 text-white">{company.rcs}</div>
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 label-mono text-white/45">
-          <span>
-            © {new Date().getFullYear()} {company.legalName} · {company.brand}.
-            Tous droits réservés.
-          </span>
-          <span>{company.legalForm}</span>
+        <div className="mt-16 border-t border-white/10 pt-8 label-mono text-white/55 text-center md:text-left">
+          © {new Date().getFullYear()} {company.brand} · Tous droits réservés.
         </div>
       </div>
     </footer>
