@@ -59,7 +59,7 @@ export function SiteHeader() {
             <img
               src="/logo.jpg"
               alt={`${company.brand} — ${company.brandFull}`}
-              className="h-12 w-12 object-contain group-hover:opacity-90 transition-opacity"
+              className="h-12 w-12 object-cover rounded-lg ring-1 ring-navy/10 group-hover:opacity-90 transition-opacity"
               width={48}
               height={48}
             />

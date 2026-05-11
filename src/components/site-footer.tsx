@@ -42,9 +42,9 @@ export function SiteFooter() {
               <img
                 src="/logo.jpg"
                 alt={`${company.brand} — ${company.brandFull}`}
-                className="h-16 w-16 object-contain"
-                width={64}
-                height={64}
+                className="h-20 w-20 object-cover rounded-xl mix-blend-screen"
+                width={80}
+                height={80}
               />
               <span>
                 <span className="block font-display text-3xl font-extrabold leading-none">
