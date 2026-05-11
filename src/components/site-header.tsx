@@ -57,7 +57,7 @@ export function SiteHeader() {
           <Link href="/" className="flex items-center gap-3 py-3 group">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.png"
+              src="/logo.jpg"
               alt={`${company.brand} — ${company.brandFull}`}
               className="h-12 w-12 object-contain group-hover:opacity-90 transition-opacity"
               width={48}

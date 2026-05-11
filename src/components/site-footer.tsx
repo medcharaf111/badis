@@ -40,7 +40,7 @@ export function SiteFooter() {
             <div className="flex items-center gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo.png"
+                src="/logo.jpg"
                 alt={`${company.brand} — ${company.brandFull}`}
                 className="h-16 w-16 object-contain"
                 width={64}
